@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="apl_edi_ora"
+  id="myeclipse.1441590025608"
+  context-root="/apl_edi"
+  j2ee-spec="5.0"
+  archive="apl_edi_ora.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

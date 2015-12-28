@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+    <listener>
+    <listener-class>
+	  	com.listener.OracleConnectListener
+	 </listener-class>
+  </listener>
+  <listener>
+    <listener-class>
+	  	com.listener.FileListener
+	 </listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>UploadHandleServlet</servlet-name>
+    <servlet-class>com.apl.upload.UploadHandleServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MessageServlet</servlet-name>
+    <servlet-class>com.apl.message.MessageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CtnrelServlet</servlet-name>
+    <servlet-class>com.apl.ctnrel.CtnrelServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CancelServlet</servlet-name>
+    <servlet-class>com.apl.cancel.CancelServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadHandleServlet</servlet-name>
+    <url-pattern>/UploadHandleServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>MessageServlet</servlet-name>
+    <url-pattern>/MessageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CtnrelServlet</servlet-name>
+    <url-pattern>/CtnrelServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CancelServlet</servlet-name>
+    <url-pattern>/CancelServlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>list.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

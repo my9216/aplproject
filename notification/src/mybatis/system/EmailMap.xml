@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射命名空间 -->
+<mapper namespace="EmailMap">
+	<!-- 显示邮件列表,按时间排序 -->
+	<select id="getEmailList" parameterType="Email" resultType="Email">
+		select ID, ADDRESS, TITLE, STATUS, CONTENT, MAIL_TYPE,to_char(CREATEDATE,'yyyy-MM-dd  hh24:mi:ss') as CREATEDATE from T_NOTIFICATION_EMAIL WHERE 1=1
+		<if test="mail_type != 'all'">
+			AND MAIL_TYPE = #{mail_type}
+		</if>
+		<if test="address != ''">
+			AND address LIKE '%' || #{address} || '%'
+		</if>
+		<if test="state != 'all'">
+			AND status = #{status}
+		</if>
+		<if test="startdate != ''">
+			AND to_char(createdate,'yyyy-MM-dd') &gt; #{startdate}
+		</if>
+		<if test="stopdate != ''">
+			AND to_char(createdate,'yyyy-MM-dd') &lt; #{stopdate}
+		</if>
+		 order by createdate desc
+	</select>
+	
+	<!-- 用于刷新邮件发送状态信息 -->
+	<select id="getEmailstateList" parameterType="Email" resultType="Email">
+		select ID, ADDRESS, TITLE, STATUS, CONTENT, TYPE,to_char(CREATEDATE,'yyyy-MM-dd  hh24:mi:ss') as CREATEDATE from T_NOTIFICATION_EMAIL WHERE ID IN
+		<foreach item="item" index="index" collection="IDS" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+		 order by createdate desc
+	</select>
+	
+	<!-- 得到所需发送的邮件,并按地址和类型排序 -->
+	<select id="getSendEmailList" parameterType="Email" resultType="Email">
+		select * from T_NOTIFICATION_EMAIL WHERE STATUS = #{status} order by ADDRESS,MAIL_TYPE
+	</select>
+	
+
+
+	<!-- 插入新邮件 -->
+	<insert id="AddEmail" parameterType="Email">
+		INSERT INTO T_NOTIFICATION_EMAIL 
+		 (
+		    ID,
+		    ADDRESS,
+		    TITLE,
+		    CREATEDATE,
+		    STATUS,
+		    CONTENT,
+		    MAIL_TYPE,
+		    SENDINFO
+		 ) VALUES (
+			SEQ_T_NOTIFICATION_EMAIL.nextval,
+			#{address},
+			#{title},
+			SYSDATE,
+			#{status},
+			#{content},
+			#{mail_type},
+			#{sendinfo}
+		 )
+	</insert>
+	
+	<!-- 修改邮件状态和地址 -->
+	<update id="updateEmail" parameterType="Email">
+		update T_NOTIFICATION_EMAIL
+		set status=#{status}
+		<if test="address != ''  and address != null">
+			,address=#{address}
+		</if>
+		where ID=#{id}
+	</update>
+	
+	<!-- 修改邮件状态和发送信息 -->
+	<update id="updateEmailStatus" parameterType="Email">
+		update T_NOTIFICATION_EMAIL
+		set status=#{status},
+		sendinfo=#{sendinfo}
+		where ID IN
+		<foreach item="item" index="index" collection="IDS" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	
+	<!-- 修改邮件为发送 -->
+	<update id="updateSendEmailStatusSent" parameterType="List">
+		update T_NOTIFICATION_EMAIL
+		set status='sent'
+		where ID IN
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	
+	<!-- 修改邮件状态为错误 -->
+	<update id="updateSendEmailStatusError" parameterType="List">
+		update T_NOTIFICATION_EMAIL
+		set status='error'
+		where ID IN
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+</mapper>
