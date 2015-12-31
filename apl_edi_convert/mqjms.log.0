@@ -1,0 +1,136 @@
+2015年12月25日 下午01时55分22秒[org.springframework.jms.listener.DefaultMessageListenerContainer#0-1] com.ibm.msg.client.wmq.internal.WMQConnection
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSWMQ1107: 此连接发生了问题。
+WebSphere MQ JMS 连接发生了错误。
+使用链接的异常来确定此错误的原因。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.reasonToException(Reason.java:585)
+                               : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:221)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:124)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.getMsg(WMQConsumerShadow.java:1466)
+                               : com.ibm.msg.client.wmq.internal.WMQSyncConsumerShadow.receiveInternal(WMQSyncConsumerShadow.java:239)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.receive(WMQConsumerShadow.java:1182)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.receive(WMQMessageConsumer.java:465)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receiveInboundMessage(JmsMessageConsumerImpl.java:787)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receive(JmsMessageConsumerImpl.java:487)
+                               : com.ibm.mq.jms.MQMessageConsumer.receive(MQMessageConsumer.java:217)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveMessage(AbstractPollingMessageListenerContainer.java:430)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.doReceiveAndExecute(AbstractPollingMessageListenerContainer.java:310)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveAndExecute(AbstractPollingMessageListenerContainer.java:263)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.invokeListener(DefaultMessageListenerContainer.java:1103)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.executeOngoingLoop(DefaultMessageListenerContainer.java:1095)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:992)
+                               : java.lang.Thread.run(Thread.java:619)
+               由 [1] 导致 --> 消息 : com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ 调用失败，完成代码为 '2' （ 'MQCC_FAILED' ），原因为 '2009' （ 'MQRC_CONNECTION_BROKEN' ）。
+                             类 : class com.ibm.mq.MQException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:209)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:124)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.getMsg(WMQConsumerShadow.java:1466)
+                               : com.ibm.msg.client.wmq.internal.WMQSyncConsumerShadow.receiveInternal(WMQSyncConsumerShadow.java:239)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.receive(WMQConsumerShadow.java:1182)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.receive(WMQMessageConsumer.java:465)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receiveInboundMessage(JmsMessageConsumerImpl.java:787)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receive(JmsMessageConsumerImpl.java:487)
+                               : com.ibm.mq.jms.MQMessageConsumer.receive(MQMessageConsumer.java:217)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveMessage(AbstractPollingMessageListenerContainer.java:430)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.doReceiveAndExecute(AbstractPollingMessageListenerContainer.java:310)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveAndExecute(AbstractPollingMessageListenerContainer.java:263)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.invokeListener(DefaultMessageListenerContainer.java:1103)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.executeOngoingLoop(DefaultMessageListenerContainer.java:1095)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:992)
+                               : java.lang.Thread.run(Thread.java:619)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年12月25日 下午01时55分22秒[org.springframework.jms.listener.DefaultMessageListenerContainer#0-1] com.ibm.msg.client.wmq.internal.WMQConnection
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSWMQ1107: 此连接发生了问题。
+WebSphere MQ JMS 连接发生了错误。
+使用链接的异常来确定此错误的原因。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.reasonToException(Reason.java:585)
+                               : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:221)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:702)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:619)
+               由 [1] 导致 --> 消息 : com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ 调用失败，完成代码为 '2' （ 'MQCC_FAILED' ），原因为 '2009' （ 'MQRC_CONNECTION_BROKEN' ）。
+                             类 : class com.ibm.mq.MQException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:209)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:702)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:619)
+               由 [2] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2009
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteSession.getConnection(RemoteSession.java:509)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.allocateMQAPI(RemoteSession.java:1371)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.allocateMQAPI(RemoteSession.java:1341)
+                               : com.ibm.mq.jmqi.remote.api.RemoteFAP.MQDISC(RemoteFAP.java:2687)
+                               : com.ibm.mq.ese.jmqi.InterceptedJmqiImpl.MQDISC(InterceptedJmqiImpl.java:335)
+                               : com.ibm.mq.ese.jmqi.ESEJMQI.MQDISC(ESEJMQI.java:237)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:690)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:619)
+               由 [3] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2009;AMQ9206: 数据发送到主机 '/172.17.66.24:6914 (172.17.66.24)' 的错误。 [1=java.net.SocketException[Connection reset by peer: socket write error],3=/172.17.66.24:6914 (172.17.66.24),4=TCP,5=OutputStream.write]
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteTCPConnection.send(RemoteTCPConnection.java:1425)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteConnection.wrapSend(RemoteConnection.java:2299)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteConnection.sendTSH(RemoteConnection.java:2125)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteConnection.sendHeartbeat(RemoteConnection.java:3281)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteTCPConnection.receive(RemoteTCPConnection.java:1588)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.receiveBuffer(RemoteRcvThread.java:794)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.receiveOneTSH(RemoteRcvThread.java:757)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.run(RemoteRcvThread.java:150)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.runTask(WorkQueueItem.java:214)
+                               : com.ibm.msg.client.commonservices.workqueue.SimpleWorkQueueItem.runItem(SimpleWorkQueueItem.java:105)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.run(WorkQueueItem.java:229)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueManager.runWorkQueueItem(WorkQueueManager.java:303)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$ThreadPoolWorker.run(WorkQueueManagerImplementation.java:1219)
+               由 [4] 导致 --> 消息 : java.net.SocketException: Connection reset by peer: socket write error
+                             类 : class java.net.SocketException
+                            堆栈 : java.net.SocketOutputStream.socketWrite0(SocketOutputStream.java:-2)
+                               : java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:92)
+                               : java.net.SocketOutputStream.write(SocketOutputStream.java:136)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteTCPConnection.send(RemoteTCPConnection.java:1371)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteConnection.wrapSend(RemoteConnection.java:2299)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteConnection.sendTSH(RemoteConnection.java:2125)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteConnection.sendHeartbeat(RemoteConnection.java:3281)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteTCPConnection.receive(RemoteTCPConnection.java:1588)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.receiveBuffer(RemoteRcvThread.java:794)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.receiveOneTSH(RemoteRcvThread.java:757)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.run(RemoteRcvThread.java:150)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.runTask(WorkQueueItem.java:214)
+                               : com.ibm.msg.client.commonservices.workqueue.SimpleWorkQueueItem.runItem(SimpleWorkQueueItem.java:105)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.run(WorkQueueItem.java:229)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueManager.runWorkQueueItem(WorkQueueManager.java:303)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$ThreadPoolWorker.run(WorkQueueManagerImplementation.java:1219)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
