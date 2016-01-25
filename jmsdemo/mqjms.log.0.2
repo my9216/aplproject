@@ -1,0 +1,1483 @@
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 上午11时36分20秒[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: MessageListener.onMessage() 方法抛出了运行时异常。
+注册了消息侦听器的消息使用者从 onMessage() 方法接收到异常。
+应该更改 onMessage() 方法以避免抛出异常。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : sun.reflect.GeneratedConstructorAccessor1.newInstance(null:-1)
+                               : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:233)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:109)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1088)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [1] 导致 --> 消息 : java.lang.Exception: java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.Exception
+                            堆栈 : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1089)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:952)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+               由 [2] 导致 --> 消息 : java.lang.ClassCastException: com.ibm.jms.JMSBytesMessage cannot be cast to javax.jms.TextMessage
+                             类 : class java.lang.ClassCastException
+                            堆栈 : test.jms.jmsdemo.MQRecevicer.onMessage(MQRecevicer.java:76)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:336)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:928)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:643)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:480)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:231)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 下午05时27分41秒[org.springframework.jms.listener.DefaultMessageListenerContainer#0-1] com.ibm.msg.client.wmq.internal.WMQConnection
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedIllegalStateException: JMSWMQ1107: 此连接发生了问题。
+WebSphere MQ JMS 连接发生了错误。
+使用链接的异常来确定此错误的原因。
+                             类 : class com.ibm.msg.client.jms.DetailedIllegalStateException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.reasonToException(Reason.java:479)
+                               : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:221)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:124)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.getMsg(WMQConsumerShadow.java:1466)
+                               : com.ibm.msg.client.wmq.internal.WMQSyncConsumerShadow.receiveInternal(WMQSyncConsumerShadow.java:239)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.receive(WMQConsumerShadow.java:1182)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.receive(WMQMessageConsumer.java:465)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receiveInboundMessage(JmsMessageConsumerImpl.java:787)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receive(JmsMessageConsumerImpl.java:487)
+                               : com.ibm.mq.jms.MQMessageConsumer.receive(MQMessageConsumer.java:217)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveMessage(AbstractPollingMessageListenerContainer.java:430)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.doReceiveAndExecute(AbstractPollingMessageListenerContainer.java:310)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveAndExecute(AbstractPollingMessageListenerContainer.java:263)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.invokeListener(DefaultMessageListenerContainer.java:1103)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.executeOngoingLoop(DefaultMessageListenerContainer.java:1095)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:992)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [1] 导致 --> 消息 : com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ 调用失败，完成代码为 '2' （ 'MQCC_FAILED' ），原因为 '2202' （ 'MQRC_CONNECTION_QUIESCING' ）。
+                             类 : class com.ibm.mq.MQException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:209)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:124)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.getMsg(WMQConsumerShadow.java:1466)
+                               : com.ibm.msg.client.wmq.internal.WMQSyncConsumerShadow.receiveInternal(WMQSyncConsumerShadow.java:239)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.receive(WMQConsumerShadow.java:1182)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.receive(WMQMessageConsumer.java:465)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receiveInboundMessage(JmsMessageConsumerImpl.java:787)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receive(JmsMessageConsumerImpl.java:487)
+                               : com.ibm.mq.jms.MQMessageConsumer.receive(MQMessageConsumer.java:217)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveMessage(AbstractPollingMessageListenerContainer.java:430)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.doReceiveAndExecute(AbstractPollingMessageListenerContainer.java:310)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveAndExecute(AbstractPollingMessageListenerContainer.java:263)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.invokeListener(DefaultMessageListenerContainer.java:1103)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.executeOngoingLoop(DefaultMessageListenerContainer.java:1095)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:992)
+                               : java.lang.Thread.run(Thread.java:745)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月3日 下午05时27分41秒[org.springframework.jms.listener.DefaultMessageListenerContainer#0-1] com.ibm.msg.client.wmq.internal.WMQConnection
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSWMQ1107: 此连接发生了问题。
+WebSphere MQ JMS 连接发生了错误。
+使用链接的异常来确定此错误的原因。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.reasonToException(Reason.java:585)
+                               : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:221)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:702)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [1] 导致 --> 消息 : com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ 调用失败，完成代码为 '2' （ 'MQCC_FAILED' ），原因为 '2009' （ 'MQRC_CONNECTION_BROKEN' ）。
+                             类 : class com.ibm.mq.MQException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:209)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:702)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [2] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2009
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteSession.getConnection(RemoteSession.java:509)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.allocateMQAPI(RemoteSession.java:1371)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.allocateMQAPI(RemoteSession.java:1341)
+                               : com.ibm.mq.jmqi.remote.api.RemoteFAP.MQDISC(RemoteFAP.java:2687)
+                               : com.ibm.mq.ese.jmqi.InterceptedJmqiImpl.MQDISC(InterceptedJmqiImpl.java:335)
+                               : com.ibm.mq.ese.jmqi.ESEJMQI.MQDISC(ESEJMQI.java:237)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:690)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [3] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2009
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteSession.getConnection(RemoteSession.java:509)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.releaseReceivedTSH(RemoteSession.java:1307)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.run(RemoteRcvThread.java:297)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.runTask(WorkQueueItem.java:214)
+                               : com.ibm.msg.client.commonservices.workqueue.SimpleWorkQueueItem.runItem(SimpleWorkQueueItem.java:105)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.run(WorkQueueItem.java:229)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueManager.runWorkQueueItem(WorkQueueManager.java:303)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$ThreadPoolWorker.run(WorkQueueManagerImplementation.java:1219)
+               由 [4] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2202
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.run(RemoteRcvThread.java:449)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.runTask(WorkQueueItem.java:214)
+                               : com.ibm.msg.client.commonservices.workqueue.SimpleWorkQueueItem.runItem(SimpleWorkQueueItem.java:105)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.run(WorkQueueItem.java:229)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueManager.runWorkQueueItem(WorkQueueManager.java:303)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$ThreadPoolWorker.run(WorkQueueManagerImplementation.java:1219)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月26日 下午06时24分32秒[org.springframework.jms.listener.DefaultMessageListenerContainer#1-1] com.ibm.msg.client.wmq.internal.WMQConnection
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSWMQ1107: 此连接发生了问题。
+WebSphere MQ JMS 连接发生了错误。
+使用链接的异常来确定此错误的原因。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.reasonToException(Reason.java:585)
+                               : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:221)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:124)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.getMsg(WMQConsumerShadow.java:1466)
+                               : com.ibm.msg.client.wmq.internal.WMQSyncConsumerShadow.receiveInternal(WMQSyncConsumerShadow.java:239)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.receive(WMQConsumerShadow.java:1182)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.receive(WMQMessageConsumer.java:465)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receiveInboundMessage(JmsMessageConsumerImpl.java:787)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receive(JmsMessageConsumerImpl.java:487)
+                               : com.ibm.mq.jms.MQMessageConsumer.receive(MQMessageConsumer.java:217)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveMessage(AbstractPollingMessageListenerContainer.java:430)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.doReceiveAndExecute(AbstractPollingMessageListenerContainer.java:310)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveAndExecute(AbstractPollingMessageListenerContainer.java:263)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.invokeListener(DefaultMessageListenerContainer.java:1103)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.executeOngoingLoop(DefaultMessageListenerContainer.java:1095)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:992)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [1] 导致 --> 消息 : com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ 调用失败，完成代码为 '2' （ 'MQCC_FAILED' ），原因为 '2009' （ 'MQRC_CONNECTION_BROKEN' ）。
+                             类 : class com.ibm.mq.MQException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:209)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:124)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.getMsg(WMQConsumerShadow.java:1466)
+                               : com.ibm.msg.client.wmq.internal.WMQSyncConsumerShadow.receiveInternal(WMQSyncConsumerShadow.java:239)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.receive(WMQConsumerShadow.java:1182)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.receive(WMQMessageConsumer.java:465)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receiveInboundMessage(JmsMessageConsumerImpl.java:787)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receive(JmsMessageConsumerImpl.java:487)
+                               : com.ibm.mq.jms.MQMessageConsumer.receive(MQMessageConsumer.java:217)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveMessage(AbstractPollingMessageListenerContainer.java:430)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.doReceiveAndExecute(AbstractPollingMessageListenerContainer.java:310)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveAndExecute(AbstractPollingMessageListenerContainer.java:263)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.invokeListener(DefaultMessageListenerContainer.java:1103)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.executeOngoingLoop(DefaultMessageListenerContainer.java:1095)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:992)
+                               : java.lang.Thread.run(Thread.java:745)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月26日 下午06时24分32秒[org.springframework.jms.listener.DefaultMessageListenerContainer#0-1] com.ibm.msg.client.wmq.internal.WMQConnection
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSWMQ1107: 此连接发生了问题。
+WebSphere MQ JMS 连接发生了错误。
+使用链接的异常来确定此错误的原因。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.reasonToException(Reason.java:585)
+                               : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:221)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:124)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.getMsg(WMQConsumerShadow.java:1466)
+                               : com.ibm.msg.client.wmq.internal.WMQSyncConsumerShadow.receiveInternal(WMQSyncConsumerShadow.java:239)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.receive(WMQConsumerShadow.java:1182)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.receive(WMQMessageConsumer.java:465)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receiveInboundMessage(JmsMessageConsumerImpl.java:787)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receive(JmsMessageConsumerImpl.java:487)
+                               : com.ibm.mq.jms.MQMessageConsumer.receive(MQMessageConsumer.java:217)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveMessage(AbstractPollingMessageListenerContainer.java:430)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.doReceiveAndExecute(AbstractPollingMessageListenerContainer.java:310)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveAndExecute(AbstractPollingMessageListenerContainer.java:263)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.invokeListener(DefaultMessageListenerContainer.java:1103)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.executeOngoingLoop(DefaultMessageListenerContainer.java:1095)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:992)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [1] 导致 --> 消息 : com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ 调用失败，完成代码为 '2' （ 'MQCC_FAILED' ），原因为 '2009' （ 'MQRC_CONNECTION_BROKEN' ）。
+                             类 : class com.ibm.mq.MQException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:209)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.checkJmqiCallSuccess(WMQMessageConsumer.java:124)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.getMsg(WMQConsumerShadow.java:1466)
+                               : com.ibm.msg.client.wmq.internal.WMQSyncConsumerShadow.receiveInternal(WMQSyncConsumerShadow.java:239)
+                               : com.ibm.msg.client.wmq.internal.WMQConsumerShadow.receive(WMQConsumerShadow.java:1182)
+                               : com.ibm.msg.client.wmq.internal.WMQMessageConsumer.receive(WMQMessageConsumer.java:465)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receiveInboundMessage(JmsMessageConsumerImpl.java:787)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl.receive(JmsMessageConsumerImpl.java:487)
+                               : com.ibm.mq.jms.MQMessageConsumer.receive(MQMessageConsumer.java:217)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveMessage(AbstractPollingMessageListenerContainer.java:430)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.doReceiveAndExecute(AbstractPollingMessageListenerContainer.java:310)
+                               : org.springframework.jms.listener.AbstractPollingMessageListenerContainer.receiveAndExecute(AbstractPollingMessageListenerContainer.java:263)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.invokeListener(DefaultMessageListenerContainer.java:1103)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.executeOngoingLoop(DefaultMessageListenerContainer.java:1095)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:992)
+                               : java.lang.Thread.run(Thread.java:745)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月26日 下午06时24分32秒[org.springframework.jms.listener.DefaultMessageListenerContainer#1-1] com.ibm.msg.client.wmq.internal.WMQConnection
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSWMQ1107: 此连接发生了问题。
+WebSphere MQ JMS 连接发生了错误。
+使用链接的异常来确定此错误的原因。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.reasonToException(Reason.java:585)
+                               : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:221)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:702)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [1] 导致 --> 消息 : com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ 调用失败，完成代码为 '2' （ 'MQCC_FAILED' ），原因为 '2009' （ 'MQRC_CONNECTION_BROKEN' ）。
+                             类 : class com.ibm.mq.MQException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:209)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:702)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [2] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2009
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteSession.getConnection(RemoteSession.java:509)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.allocateMQAPI(RemoteSession.java:1371)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.allocateMQAPI(RemoteSession.java:1341)
+                               : com.ibm.mq.jmqi.remote.api.RemoteFAP.MQDISC(RemoteFAP.java:2687)
+                               : com.ibm.mq.ese.jmqi.InterceptedJmqiImpl.MQDISC(InterceptedJmqiImpl.java:335)
+                               : com.ibm.mq.ese.jmqi.ESEJMQI.MQDISC(ESEJMQI.java:237)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:690)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [3] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2009
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteSession.getConnection(RemoteSession.java:509)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.releaseReceivedTSH(RemoteSession.java:1307)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.run(RemoteRcvThread.java:297)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.runTask(WorkQueueItem.java:214)
+                               : com.ibm.msg.client.commonservices.workqueue.SimpleWorkQueueItem.runItem(SimpleWorkQueueItem.java:105)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.run(WorkQueueItem.java:229)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueManager.runWorkQueueItem(WorkQueueManager.java:303)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$ThreadPoolWorker.run(WorkQueueManagerImplementation.java:1219)
+               由 [4] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2202
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.run(RemoteRcvThread.java:449)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.runTask(WorkQueueItem.java:214)
+                               : com.ibm.msg.client.commonservices.workqueue.SimpleWorkQueueItem.runItem(SimpleWorkQueueItem.java:105)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.run(WorkQueueItem.java:229)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueManager.runWorkQueueItem(WorkQueueManager.java:303)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$ThreadPoolWorker.run(WorkQueueManagerImplementation.java:1219)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------
+2015年11月26日 下午06时24分32秒[org.springframework.jms.listener.DefaultMessageListenerContainer#0-1] com.ibm.msg.client.wmq.internal.WMQConnection
+已忽略异常，因为未注册任何异常侦听器：'
+                            消息 : com.ibm.msg.client.jms.DetailedJMSException: JMSWMQ1107: 此连接发生了问题。
+WebSphere MQ JMS 连接发生了错误。
+使用链接的异常来确定此错误的原因。
+                             类 : class com.ibm.msg.client.jms.DetailedJMSException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.reasonToException(Reason.java:585)
+                               : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:221)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:702)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [1] 导致 --> 消息 : com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ 调用失败，完成代码为 '2' （ 'MQCC_FAILED' ），原因为 '2009' （ 'MQRC_CONNECTION_BROKEN' ）。
+                             类 : class com.ibm.mq.MQException
+                            堆栈 : com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.java:209)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:702)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [2] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2009
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteSession.getConnection(RemoteSession.java:509)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.allocateMQAPI(RemoteSession.java:1371)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.allocateMQAPI(RemoteSession.java:1341)
+                               : com.ibm.mq.jmqi.remote.api.RemoteFAP.MQDISC(RemoteFAP.java:2687)
+                               : com.ibm.mq.ese.jmqi.InterceptedJmqiImpl.MQDISC(InterceptedJmqiImpl.java:335)
+                               : com.ibm.mq.ese.jmqi.ESEJMQI.MQDISC(ESEJMQI.java:237)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.disconnect(WMQSession.java:690)
+                               : com.ibm.msg.client.wmq.internal.WMQSession.close(WMQSession.java:660)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:513)
+                               : com.ibm.msg.client.jms.internal.JmsSessionImpl.close(JmsSessionImpl.java:303)
+                               : com.ibm.mq.jms.MQSession.close(MQSession.java:298)
+                               : org.springframework.jms.support.JmsUtils.closeSession(JmsUtils.java:108)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.clearResources(DefaultMessageListenerContainer.java:1144)
+                               : org.springframework.jms.listener.DefaultMessageListenerContainer$AsyncMessageListenerInvoker.run(DefaultMessageListenerContainer.java:1003)
+                               : java.lang.Thread.run(Thread.java:745)
+               由 [3] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2009
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteSession.getConnection(RemoteSession.java:509)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteSession.releaseReceivedTSH(RemoteSession.java:1307)
+                               : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.run(RemoteRcvThread.java:297)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.runTask(WorkQueueItem.java:214)
+                               : com.ibm.msg.client.commonservices.workqueue.SimpleWorkQueueItem.runItem(SimpleWorkQueueItem.java:105)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.run(WorkQueueItem.java:229)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueManager.runWorkQueueItem(WorkQueueManager.java:303)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$ThreadPoolWorker.run(WorkQueueManagerImplementation.java:1219)
+               由 [4] 导致 --> 消息 : com.ibm.mq.jmqi.JmqiException: CC=2;RC=2202
+                             类 : class com.ibm.mq.jmqi.JmqiException
+                            堆栈 : com.ibm.mq.jmqi.remote.impl.RemoteRcvThread.run(RemoteRcvThread.java:449)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.runTask(WorkQueueItem.java:214)
+                               : com.ibm.msg.client.commonservices.workqueue.SimpleWorkQueueItem.runItem(SimpleWorkQueueItem.java:105)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueItem.run(WorkQueueItem.java:229)
+                               : com.ibm.msg.client.commonservices.workqueue.WorkQueueManager.runWorkQueueItem(WorkQueueManager.java:303)
+                               : com.ibm.msg.client.commonservices.j2se.workqueue.WorkQueueManagerImplementation$ThreadPoolWorker.run(WorkQueueManagerImplementation.java:1219)
+'。
+
+说明：
+已尝试将异常传递给该连接的异常侦听器，但是未注册侦听器。
+
+操作：
+必须向连接注册异常侦听器才能接收其异常。
+--------------------------------------------------------------------

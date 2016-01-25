@@ -14,20 +14,20 @@ import com.traffic.util.Logger;
 import com.traffic.util.PropertiesUtil;
 
 /**
- * oracleÁ¬½Ó³Ø
+ * oracleï¿½ï¿½ï¿½Ó³ï¿½
  * @author Administrator
  *
  */
 public class OracleConnectionService {
-	private DataSource mDataSource = null;//Á¬½Ó³Ø
-	private KeepConnectionThread mKeepConnectionThread = null;//±£³ÖÁ¬½ÓÏß³Ì
-	public Connection conn = null;//´´½¨Á¬½Ó
+	private DataSource mDataSource = null;//ï¿½ï¿½ï¿½Ó³ï¿½
+	private KeepConnectionThread mKeepConnectionThread = null;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
+	public Connection conn = null;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private boolean mStop;
 	private static OracleConnectionService mOracleConnectionService = null;
-	public final static Properties properties = PropertiesUtil.getProperties("dbconfig.properties");//Êý¾Ý¿âÁ¬½ÓÅäÖÃ
+	public final static Properties properties = PropertiesUtil.getProperties("dbconfig.properties");//ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	/*
-	 * ±£³ÖÁ¬½ÓÏß³Ì£¬Ã¿6Ð¡Ê±ÓëÊý¾Ý¿â½»»¥Ò»´Î
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½Ã¿6Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿â½»ï¿½ï¿½Ò»ï¿½ï¿½
 	 */
 	class KeepConnectionThread extends Thread {
 		public KeepConnectionThread() {
@@ -63,11 +63,11 @@ public class OracleConnectionService {
 					} catch (Exception e) {
 						logger.error(e.getClass().getName() + ":" + e.getMessage());
 					}
-					// ÑÓÊ±5Ð¡Ê±¡£
+					// ï¿½ï¿½Ê±5Ð¡Ê±ï¿½ï¿½
 					for (int i = 0; i < (60 * 60 * 5); i++) {
 						try {
 							sleep(1000);
-							// 1Ãë
+							// 1ï¿½ï¿½
 							if (mStop) {
 								break;
 							}
@@ -84,7 +84,7 @@ public class OracleConnectionService {
 	}
 
 	/*
-	 * ´´½¨Á¬½Ó²¢Æô¶¯Ïß³Ì
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
 	 */
 	public static void Initialize() throws Exception
 	{
@@ -95,7 +95,7 @@ public class OracleConnectionService {
 	}
 	
 	/*
-	 * ¹Ø±ÕÁ¬½Ó²¢½áÊøÏß³Ì
+	 * ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
 	 */
 	public static void Finalize() throws Exception
 	{
@@ -113,7 +113,7 @@ public class OracleConnectionService {
 	}
 
 	/*
-	 * ½¨Á¢Á¬½Ó£¬ÏµÍ³Æô¶¯¿ªÊ¼ÔËÐÐ²¢Ö»Ö´ÐÐÒ»´Î
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ð²ï¿½Ö»Ö´ï¿½ï¿½Ò»ï¿½ï¿½
 	 */
 	public OracleConnectionService() throws Exception {
 		try {
@@ -125,9 +125,11 @@ public class OracleConnectionService {
 	}
 
 	/*
-	 * ·µ»ØÊý¾Ý¿âÁ¬½Ó
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public Connection GetConnection() throws Exception {
 		return mDataSource.getConnection();
 	}
+	
+	
 }

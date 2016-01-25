@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//config/database_config.properties=UTF-8
+encoding//config/folder_config.properties=UTF-8
+encoding//config/regex_config.properties=UTF-8
+encoding//src/com/apl/traffic/cop/form/QuartzFileForm.java=UTF-8
+encoding//src/com/apl/traffic/cop/util/FileUtil.java=UTF-8
+encoding/<project>=UTF-8
+encoding/log4j.properties=UTF-8
+encoding/src=UTF-8

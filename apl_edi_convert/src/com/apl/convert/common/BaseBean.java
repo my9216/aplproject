@@ -56,7 +56,7 @@ public class BaseBean {
 		return dataset;
 
 	}
-
+	
 	public static int insert(String pSqlString, String[] pParameter) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

@@ -14,7 +14,7 @@ import com.ibm.mq.jms.MQQueueConnectionFactory;
   
   
 /**
- * connect directly   
+ * connect directly 
  *
  */
 public class MQRecevicer implements MessageListener{  

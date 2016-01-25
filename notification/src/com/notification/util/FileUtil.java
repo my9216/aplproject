@@ -11,12 +11,6 @@ import java.nio.channels.FileChannel;
 
 
 public class FileUtil {
-
-	public static void main(String[] args) {
-		String sourceFile = "D:\\工作\\项目\\APL\\网络订仓平台重构项目\\测试\\input\\300180855220-1441941614216.edi";
-		String targetFile = "D:\\工作\\项目\\APL\\网络订仓平台重构项目\\测试\\backUp\\300180855220-1441941614216.edi";
-		fileChannelCopy(sourceFile, targetFile);
-	}
 	
 	/**
 	 * 获取文件夹内的所有文件

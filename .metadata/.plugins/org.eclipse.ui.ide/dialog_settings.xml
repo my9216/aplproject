@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="E:\workspace\jmsdemo"/>
+			<item value="E:\workspace22222\mqdemo"/>
+			<item value="E:\newworkspace2\ERS"/>
+			<item value="C:\Users\Administrator\Documents\Tencent Files\1262944750\FileRecv\traffic"/>
+			<item value="C:\Users\Administrator\Documents\Tencent Files\1262944750\FileRecv\apl20160118 (1)\apl_edi_convert"/>
+			<item value="E:\newworkspace\back_mg_mod"/>
+			<item value="E:\newworkspace\apl_edi_ora"/>
+			<item value="E:\newworkspace\notification"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>

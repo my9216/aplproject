@@ -1,0 +1,5 @@
+package com.bmm.exception;
+
+public class UserException {
+
+}

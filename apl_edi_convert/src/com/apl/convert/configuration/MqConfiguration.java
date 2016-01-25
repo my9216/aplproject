@@ -1,5 +1,5 @@
 /**
- * 读取保存配置文件
+ *  MQ配置文件
  */
 package com.apl.convert.configuration;
 

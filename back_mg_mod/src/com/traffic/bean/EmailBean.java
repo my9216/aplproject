@@ -17,13 +17,13 @@ public class EmailBean extends BaseBean{
 	private static final String S_SQL_STATISTICS = "SELECT STATUS,count(ID) as count FROM T_NOTIFICATION_EMAIL WHERE 1=1 ";
 	
 	/*
-	 * ÏÔÊ¾ÓÊ¼þÁÐ±í
+	 * ï¿½ï¿½Ê¾ï¿½Ê¼ï¿½ï¿½Ð±ï¿½
 	 */
 	public static Vector<?> GetEmailList(String type, String address,String state, String startdate, String stopdate, int page, int rows) throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_SEARCH;
 		String[] parameter = null;		
-		/*ÅÐ¶ÏÊÇ·ñ×öÉ¸Ñ¡*/
+		/*ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½É¸Ñ¡*/
 		if(!"all".equals(type)){
 			sql += " AND MAIL_TYPE = '" + type + "'";
 		}
@@ -45,10 +45,10 @@ public class EmailBean extends BaseBean{
 	}
 	
 	/*
-	 * Ë¢ÐÂ·¢ËÍ×´Ì¬
+	 * Ë¢ï¿½Â·ï¿½ï¿½ï¿½×´Ì¬
 	 */
 	public static Vector<?> GetRefreshstate(String[] ID) throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_REFRESHSTATE;
 		sql += String.format(" WHERE ID IN (%s) ORDER BY createdate DESC", ArrayToString(ID));
 		String[] parameter = null;
@@ -57,7 +57,7 @@ public class EmailBean extends BaseBean{
 	}
 	
 	/*
-	 * ÐÞ¸Ä·¢ËÍµØÖ·²¢ÖØÐÂ·¢ËÍÓÊ¼þ
+	 * ï¿½Þ¸Ä·ï¿½ï¿½Íµï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½
 	 */
 	public static void UpdateAddress(String state,String address,String ID) throws SQLException, Exception{
 		String sql = S_SQL_UPDATE_ADDRESS;
@@ -69,7 +69,7 @@ public class EmailBean extends BaseBean{
 	}
 	
 	/*
-	 * ÖØÐÂ·¢ËÍÓÊ¼þ
+	 * ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½
 	 */
 	public static void UpdateState(String state,String[] ID) throws SQLException, Exception{
 		String sql = S_SQL_UPDATE_STATE;
@@ -80,10 +80,10 @@ public class EmailBean extends BaseBean{
 	}
 	
 	/*
-	 * Í³¼Æ·¢ËÍÇé¿ö
+	 * Í³ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public static Vector<?> GetStatisticsinfo(String type, String address,String state, String startdate, String stopdate) throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_STATISTICS;
 		String[] parameter = null;
 		if(!"all".equals(type)){

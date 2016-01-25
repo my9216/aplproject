@@ -25,10 +25,12 @@ public class ManagerBean extends BaseBean{
 	private static final String S_SQL_INSERT = "INSERT INTO T_TRAFFIC_BOOKING_RANGE (ID,BK_LEVEL,CODE,PARENT_ID,NO_WAVE1_MIN,NO_WAVE1_MAX,WAVE1_MIN,WAVE1_MAX,NO_WAVE1_LAST_USED_ID,WAVE1_LAST_USED_ID) VALUES (SEQ_T_TRAFFIC_BOOKING_RANGE.nextval,?,?,?,?,?,?,?,?,?)";
 	
 	private static final String S_SQL_INSERT_DEFAULT = "INSERT INTO T_TRAFFIC_BOOKING_RANGE (ID,BK_LEVEL,CODE,PARENT_ID,NO_WAVE1_MIN,NO_WAVE1_MAX,WAVE1_MIN,WAVE1_MAX,NO_WAVE1_LAST_USED_ID,WAVE1_LAST_USED_ID) SELECT SEQ_T_TRAFFIC_BOOKING_RANGE.nextval,?,'default',ID,?,?,?,?,?,? FROM T_TRAFFIC_BOOKING_RANGE WHERE code = ?";
+	
 	private static final String S_SQL_UPDATESTATE = "UPDATE T_TRAFFIC_BOOKING_RANGE set NO_WAVE1_MAX=NO_WAVE1_LAST_USED_ID,WAVE1_MAX=WAVE1_LAST_USED_ID,ISDELETE='1' where id=?";
 	private static final String S_SQL_UPDATE = "UPDATE T_TRAFFIC_BOOKING_RANGE set NO_WAVE1_LAST_USED_ID=?,WAVE1_LAST_USED_ID=? where id=(select PARENT_ID from T_TRAFFIC_BOOKING_RANGE where id=?)";
 	private static final String S_SQL_UPDATEDEFAULT = "UPDATE T_TRAFFIC_BOOKING_RANGE set NO_WAVE1_MIN=?,NO_WAVE1_MAX=?,WAVE1_MIN=?,WAVE1_MAX=?,NO_WAVE1_LAST_USED_ID=?,WAVE1_LAST_USED_ID=?  where PARENT_ID=? and code='default'";
 	private static final String S_SQL_UPDATEPARTENDID = "UPDATE T_TRAFFIC_BOOKING_RANGE set PARENT_ID=(select max(id) from T_TRAFFIC_BOOKING_RANGE where code=? and ISDELETE is null) where PARENT_ID=?";
+	
 	private static final String S_SQL_REMOVE = "UPDATE T_TRAFFIC_BOOKING_RANGE set NO_WAVE1_MAX=NO_WAVE1_LAST_USED_ID,WAVE1_MAX=WAVE1_LAST_USED_ID,ISDELETE='1' where id in (%s)";
 	
 	private String locationcode;
@@ -56,7 +58,7 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * ·µ»ØlocationÁÐ±í
+	 * ï¿½ï¿½ï¿½ï¿½locationï¿½Ð±ï¿½
 	 * @param page
 	 * @param rows
 	 * @return
@@ -64,7 +66,7 @@ public class ManagerBean extends BaseBean{
 	 * @throws Exception
 	 */
 	public Vector<?> GetLoadlocation(int page, int rows) throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_SEARCHLOCATION;
 		String[] parameter = null;	
 		parameter = new String [1];
@@ -74,7 +76,7 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * ·µ»ØÊ÷ÐÎÁÐ±íµÄ¸¸½Úµã
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½Ä¸ï¿½ï¿½Úµï¿½
 	 * @param page
 	 * @param rows
 	 * @return
@@ -82,7 +84,7 @@ public class ManagerBean extends BaseBean{
 	 * @throws Exception
 	 */
 	public Vector<?> GetLoadlist(int page, int rows) throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_SEARCHLIST;
 		String[] parameter = null;
 		parameter = new String [3];
@@ -94,13 +96,13 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * ·µ»ØÊ÷ÐÎÁÐ±íµÄ×Ó½Úµã
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½Ó½Úµï¿½
 	 * @return
 	 * @throws SQLException
 	 * @throws Exception
 	 */
 	public Vector<?> GetLoadPartentlist() throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_SEARCHPARTENTLIST;
 		String[] parameter = null;
 		parameter = new String [1];
@@ -114,7 +116,7 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * ¸ù¾Ý¸¸ID·µ»ØËùÊôµÄ×Ó½ÚµãÐÅÏ¢
+	 * ï¿½ï¿½ï¿½Ý¸ï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½Úµï¿½ï¿½ï¿½Ï¢
 	 * @param page
 	 * @param rows
 	 * @return
@@ -122,7 +124,7 @@ public class ManagerBean extends BaseBean{
 	 * @throws Exception
 	 */
 	public Vector<?> GetLoaddefaultlist(int page, int rows) throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_SEARCHDEFAULTLIST;
 		String[] parameter = null;
 		parameter = new String [1];
@@ -136,7 +138,7 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * ·µ»Øbussiness partyÁÐ±í
+	 * ï¿½ï¿½ï¿½ï¿½bussiness partyï¿½Ð±ï¿½
 	 * @param page
 	 * @param rows
 	 * @return
@@ -144,7 +146,7 @@ public class ManagerBean extends BaseBean{
 	 * @throws Exception
 	 */
 	public Vector<?> GetLoadbp(int page, int rows) throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_SEARCHBP;
 		String[] parameter = null;	
 		parameter = new String [1];
@@ -154,7 +156,7 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * ·µ»ØorignÁÐ±í
+	 * ï¿½ï¿½ï¿½ï¿½orignï¿½Ð±ï¿½
 	 * @param page
 	 * @param rows
 	 * @return
@@ -162,7 +164,7 @@ public class ManagerBean extends BaseBean{
 	 * @throws Exception
 	 */
 	public Vector<?> Geteditorign(int page, int rows) throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_SEARCHEDITORIGN;
 		String[] parameter = null;	
 		parameter = new String [2];
@@ -173,13 +175,13 @@ public class ManagerBean extends BaseBean{
 	}
 
 	/**
-	 * ·µ»ØlocationÏÂÀ­ÁÐ±í
+	 * ï¿½ï¿½ï¿½ï¿½locationï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 	 * @return
 	 * @throws SQLException
 	 * @throws Exception
 	 */
 	public Vector<?> GetLocationList() throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_LOCATIN;
 		String[] parameter = null;	
 		vec = BaseBean.extractComboArray(sql, parameter, "comid","text");
@@ -187,13 +189,13 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * ·µ»ØbpcodeÏÂÀ­¿òÊý¾Ý
+	 * ï¿½ï¿½ï¿½ï¿½bpcodeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 * @throws SQLException
 	 * @throws Exception
 	 */
 	public Vector<?> GetBpcodeList() throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_BPCODE;
 		String[] parameter = null;	
 		parameter = new String [1];
@@ -206,27 +208,13 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 *·µ»Ø BOOKING PARTYÏÂÀ­¿òÊý¾Ý
-	 * @return
-	 * @throws SQLException
-	 * @throws Exception
-	 */
-	public Vector<?> GetPartentcodeList() throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
-		String sql = S_SQL_PARTENTCODE;
-		String[] parameter = null;
-		vec = BaseBean.extractComboArray(sql, parameter, "comid","text");
-		return vec;
-	}
-	
-	/**
-	 * ·µ»Ø ORIGNÏÂÀ­¿òÊý¾Ý
+	 * ï¿½ï¿½ï¿½ï¿½ ORIGNï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 * @throws SQLException
 	 * @throws Exception
 	 */
 	public Vector<?> GetOrignList() throws SQLException, Exception{
-		Vector<?> vec = null; // ½á¹û¼¯
+		Vector<?> vec = null; // ï¿½ï¿½ï¿½ï¿½ï¿½
 		String sql = S_SQL_ORIGN;
 		String[] parameter = null;
 		vec = BaseBean.extractComboArray(sql, parameter, "comid","text");
@@ -235,12 +223,12 @@ public class ManagerBean extends BaseBean{
 	
 
 	/**
-	 * Ìí¼ÓlocationÐÅÏ¢
+	 * ï¿½ï¿½ï¿½locationï¿½ï¿½Ï¢
 	 * @param type
 	 * @throws Exception
 	 */
 	public void addlocation(String type) throws Exception {
-		if(!"default".equals(type)){//Ìí¼ÓlocationÐÅÏ¢
+		if(!"default".equals(type)){//ï¿½ï¿½ï¿½locationï¿½ï¿½Ï¢
 			String sql = S_SQL_INSERT;
 			String[] parameter = null;	
 			parameter = new String [9];
@@ -254,7 +242,7 @@ public class ManagerBean extends BaseBean{
 			parameter[7] = nowavelast;
 			parameter[8] = wavelast;
 			BaseBean.Update(sql, parameter);
-		}else{//Ìí¼Ólocation½ÚµãÏÂdefaultÐÅÏ¢
+		}else{//ï¿½ï¿½ï¿½locationï¿½Úµï¿½ï¿½ï¿½defaultï¿½ï¿½Ï¢
 			String sql = S_SQL_INSERT_DEFAULT;
 			String[] parameter = null;	
 			parameter = new String [8];
@@ -271,18 +259,18 @@ public class ManagerBean extends BaseBean{
 	}
 
 	/**
-	 * ÐÞ¸ÄlocationÐÅÏ¢
+	 * ï¿½Þ¸ï¿½locationï¿½ï¿½Ï¢
 	 * @param id
 	 * @throws Exception
 	 */
 	public void updatelocation(String id) throws Exception {
-		String sql = S_SQL_UPDATESTATE;//½«location×´Ì¬¸ÄÎªÉ¾³ý×´Ì¬
+		String sql = S_SQL_UPDATESTATE;//ï¿½ï¿½location×´Ì¬ï¿½ï¿½ÎªÉ¾ï¿½ï¿½×´Ì¬
 		String[] parameter = null;	
 		parameter = new String [1];
 		parameter[0] = id;
 		BaseBean.Update(sql, parameter);
-		addlocation("");//Ìí¼ÓÐÂµÄlocationÐÅÏ¢
-		sql = S_SQL_UPDATEPARTENDID;//ÐÞ¸ÄlocationÏÂµÄ×Ó½ÚµãµÄparetendid
+		addlocation("");//ï¿½ï¿½ï¿½ï¿½Âµï¿½locationï¿½ï¿½Ï¢
+		sql = S_SQL_UPDATEPARTENDID;//ï¿½Þ¸ï¿½locationï¿½Âµï¿½ï¿½Ó½Úµï¿½ï¿½paretendid
 		parameter = new String [2];
 		parameter[0] = id;
 		parameter[1] = code;
@@ -290,23 +278,23 @@ public class ManagerBean extends BaseBean{
 	}
 
 	/**
-	 * ÐÞ¸ÄÄ¬ÈÏÐÅÏ¢
+	 * ï¿½Þ¸ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * @param id
 	 * @throws Exception
 	 */
 	public void updatedefault(String id) throws Exception {
-		String sql = S_SQL_UPDATESTATE;//½«default×´Ì¬¸ÄÎªÉ¾³ý×´Ì¬
+		String sql = S_SQL_UPDATESTATE;//ï¿½ï¿½default×´Ì¬ï¿½ï¿½ÎªÉ¾ï¿½ï¿½×´Ì¬
 		String[] parameter = null;	
 		parameter = new String [1];
 		parameter[0] = id;
 		BaseBean.Update(sql, parameter);
-		sql  = S_SQL_UPDATE;//½«defaultµÄ¸¸½ÚµãÐÅÏ¢
+		sql  = S_SQL_UPDATE;//ï¿½ï¿½defaultï¿½Ä¸ï¿½ï¿½Úµï¿½ï¿½ï¿½Ï¢
 		parameter = new String [3];
 		parameter[0] = nowavelast;
 		parameter[1] = wavelast;
 		parameter[2] = id;
 		BaseBean.Update(sql, parameter);
-		sql = S_SQL_INSERT;//Ìí¼ÓdefaultÐÅÏ¢
+		sql = S_SQL_INSERT;//ï¿½ï¿½ï¿½defaultï¿½ï¿½Ï¢
 		parameter = new String [9];
 		parameter[0] = level;
 		parameter[1] = code;
@@ -321,13 +309,13 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * Ìí¼Óbussiness partyÐÅÏ¢
+	 * ï¿½ï¿½ï¿½bussiness partyï¿½ï¿½Ï¢
 	 * @param type
 	 * @throws Exception
 	 */
 	public void addbp(String type) throws Exception {
 		if(!"default".equals(type)){
-			String sql = S_SQL_INSERT;//Ìí¼Óbussiness partyÐÅÏ¢
+			String sql = S_SQL_INSERT;//ï¿½ï¿½ï¿½bussiness partyï¿½ï¿½Ï¢
 			String[] parameter = null;	
 			parameter = new String [9];
 			parameter[0] = level;
@@ -341,7 +329,7 @@ public class ManagerBean extends BaseBean{
 			parameter[8] = wavelast;
 			BaseBean.Update(sql, parameter);
 		}else{
-			String sql = S_SQL_INSERT_DEFAULT;//Ìí¼Óbussiness partyÏÂµÄdefaultÐÅÏ¢
+			String sql = S_SQL_INSERT_DEFAULT;//ï¿½ï¿½ï¿½bussiness partyï¿½Âµï¿½defaultï¿½ï¿½Ï¢
 			String[] parameter = null;	
 			parameter = new String [8];
 			parameter[0] = level;
@@ -357,18 +345,18 @@ public class ManagerBean extends BaseBean{
 	}
 
 	/**
-	 * ÐÞ¸Äbussiness partyÐÅÏ¢
+	 * ï¿½Þ¸ï¿½bussiness partyï¿½ï¿½Ï¢
 	 * @param id
 	 * @throws Exception
 	 */
 	public void updatebp(String id) throws Exception {
-		String sql = S_SQL_UPDATESTATE;//½«bussiness party×´Ì¬¸ÄÎªÉ¾³ý×´Ì¬
+		String sql = S_SQL_UPDATESTATE;//ï¿½ï¿½bussiness party×´Ì¬ï¿½ï¿½ÎªÉ¾ï¿½ï¿½×´Ì¬
 		String[] parameter = null;	
 		parameter = new String [1];
 		parameter[0] = id;
 		BaseBean.Update(sql, parameter);
-		addbp("");//Ìí¼Óbussiness partyÐÅÏ¢
-		sql = S_SQL_UPDATEDEFAULT;//ÐÞ¸Äbussiness partyÏÂµÄdefaultÐÅÏ¢
+		addbp("");//ï¿½ï¿½ï¿½bussiness partyï¿½ï¿½Ï¢
+		sql = S_SQL_UPDATEDEFAULT;//ï¿½Þ¸ï¿½bussiness partyï¿½Âµï¿½defaultï¿½ï¿½Ï¢
 		parameter = new String [7];
 		parameter[0] = nowavemin;
 		parameter[1] = nowavemax;
@@ -378,7 +366,7 @@ public class ManagerBean extends BaseBean{
 		parameter[5] = wavelast;
 		parameter[6] = id;
 		BaseBean.Update(sql, parameter);
-		sql = S_SQL_UPDATEPARTENDID;////ÐÞ¸Äbussiness partyÏÂµÄ×Ó½ÚµãµÄparetendid
+		sql = S_SQL_UPDATEPARTENDID;////ï¿½Þ¸ï¿½bussiness partyï¿½Âµï¿½ï¿½Ó½Úµï¿½ï¿½paretendid
 		parameter = new String [2];
 		parameter[0] = code;
 		parameter[1] = id;
@@ -386,7 +374,7 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * Ìí¼ÓorignÐÅÏ¢
+	 * ï¿½ï¿½ï¿½orignï¿½ï¿½Ï¢
 	 * @throws Exception
 	 */
 	public void addorign() throws Exception {
@@ -406,7 +394,7 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * ÐÞ¸ÄorignÐÅÏ¢
+	 * ï¿½Þ¸ï¿½orignï¿½ï¿½Ï¢
 	 * @param id
 	 * @throws Exception
 	 */
@@ -420,7 +408,7 @@ public class ManagerBean extends BaseBean{
 	}
 	
 	/**
-	 * ÒÆ³ýÐÅÏ¢
+	 * ï¿½Æ³ï¿½ï¿½ï¿½Ï¢
 	 * @param id
 	 * @throws Exception
 	 */

@@ -1,0 +1,166 @@
+package com.bmm.service;
+
+import java.util.List;
+import java.util.Vector;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.bmm.bean.common.BaseBean;
+import com.bmm.dao.Dao;
+import com.bmm.entity.Email;
+import com.bmm.traffic.util.PublicTools;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+@Service("EmailService")
+public class EmailService extends SqlService {
+
+	@Resource(name = "dao")
+	private Dao dao;
+
+	/**
+	 * 统计Email的相关类型及数量
+	 * 
+	 * @param email
+	 *            查询实体类
+	 * @return result JSONArray类型查询结果集
+	 */
+	public JSONArray getStatistics(Email email) {
+
+		// 初始化SQL语句
+		String sql = S_SQL_EMAIL_STATISTICS;
+		// 初始化相关查询参数
+		String mailType = email.getMailType();
+		String address = email.getAddress();
+		String status = email.getStatus();
+		String startDate = email.getStartDate();
+		String stopDate = email.getStopDate();
+
+		// 处理相关参数及SQL
+		String[] param = null;
+		// 判断是否做筛选,如果有对应的查询条件,则将将查询条件拼进SQL语句的WHERE条件中
+		if (!"".equals(mailType) && !"all".equals(mailType)) {
+			sql += " AND MAIL_TYPE = '" + mailType + "'";
+		}
+		if (!"".equals(address)) {
+			sql += " AND address like '%" + address + "%'";
+		}
+		if (!"".equals(status) && !"all".equals(status)) {
+			sql += " AND STATUS = '" + status + "'";
+		}
+		if (!"".equals(startDate)) {
+			sql += " AND to_char(CREATEDATE,'yyyy-MM-dd') >= '" + startDate + "'";
+		}
+		if (!"".equals(stopDate)) {
+			sql += " AND to_char(CREATEDATE,'yyyy-MM-dd') <= '" + stopDate + "'";
+		}
+		sql += " group by STATUS ";
+
+		// 查询
+		List list = dao.selectList(sql, param);
+		// 将查询到的结果集转换为 JSONArray
+		JSONArray result = JSONArray.fromObject(list);
+		return result;
+	}
+
+	/**
+	 * 查询邮件信息
+	 * 
+	 * @param email
+	 *            查询实体类
+	 * @return result JSONArray类型查询结果集
+	 * @throws Exception
+	 */
+	public JSONObject getEmailList(Email email, int rows, int page) throws Exception {
+
+		// 初始化SQL语句
+		String sql = S_SQL_EMAIL_SEARCH;
+		// 初始化相关查询参数
+		String mailType = email.getMailType();
+		String address = email.getAddress();
+		String status = email.getStatus();
+		String startDate = email.getStartDate();
+		String stopDate = email.getStopDate();
+
+		// 处理相关参数及SQL
+		String[] param = null;
+		// 判断是否做筛选,如果有对应的查询条件,则将将查询条件拼进SQL语句的WHERE条件中
+		if (!"all".equals(mailType) && !"".equals(mailType)) {
+			sql += " AND MAIL_TYPE = '" + mailType + "'";
+		}
+		if (!"".equals(address)) {
+			sql += " AND lower(address) like '%" + address.toLowerCase() + "%'";
+		}
+		if (!"all".equals(status) && !"".equals(status)) {
+			sql += " AND STATUS = '" + status + "'";
+		}
+		if (!"".equals(startDate)) {
+			sql += " AND to_char(CREATEDATE,'yyyy-MM-dd') >= '" + startDate + "'";
+		}
+		if (!"".equals(stopDate)) {
+			sql += " AND to_char(CREATEDATE,'yyyy-MM-dd') <= '" + stopDate + "'";
+		}
+
+		// 查询语句按照生成时间倒叙排列
+		sql += " ORDER BY createdate DESC ";
+
+		// 查询
+		JSONObject queryResult = dao.selectListPage(sql, param, rows, page);
+		List list = (List) queryResult.get("List");
+		// 将查询到的结果集转换为 JSONArray
+		JSONArray result = JSONArray.fromObject(list);
+		return result;
+	}
+
+	/**
+	 * 定时刷新页面数据
+	 * 
+	 * @param ids
+	 *            将当前主页面的邮件信息主键id以","拼接
+	 * @return result JSONArray类型查询结果集
+	 * @throws Exception
+	 */
+	public JSONArray refreshStatus(String ids) throws Exception {
+
+		// 初始化SQL语句
+		String sql = S_SQL_EMAIL_REFRESHSTATUS;
+		// 处理相关参数及SQL
+		if (ids != null && "".equals(ids)) {
+			sql += " WHERE ID IN (%s) ORDER BY createdate DESC";
+			sql = sql.replaceAll("%s", ids);
+		}
+		String[] param = null;
+
+		// 查询
+		List list = dao.selectList(sql, param);
+		// 将查询到的结果集转换为 JSONArray
+		JSONArray result = JSONArray.fromObject(list);
+		return result;
+	}
+
+	/**
+	 * 更新邮件状态
+	 * 
+	 * @param ids
+	 *            以","拼接的相关邮件id主键
+	 * 
+	 */
+	public void updateEmailStatus(String ids) {
+
+		// 初始化SQL语句
+		String sql = S_SQL_EMAIL_UPDATE_STATUS;
+		// 处理相关参数及SQL
+		if (ids != null && "".equals(ids)) {
+			sql = sql.replaceAll("%s", ids);
+		}
+		String[] param = new String[1];
+		// 将新的状态设为"wait"
+		param[0] = "wait";
+
+		// 更新
+		dao.update(sql, param);
+	}
+}

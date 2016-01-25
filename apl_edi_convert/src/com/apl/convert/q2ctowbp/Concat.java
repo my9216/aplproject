@@ -9,6 +9,10 @@ import com.apl.convert.exception.DataException;
 
 import net.sf.json.JSONObject;
 
+/**
+ * Convert 拼接类
+ * 
+ */
 public class Concat {
 	ConvertConfiguration con;
 	String head;
@@ -27,6 +31,11 @@ public class Concat {
 		this.curRow = 1;
 	}
 
+	/**
+	 * 拼接主体方法
+	 * 
+	 * @return 生成的报文文件内容
+	 */
 	public String concating() {
 		// loop Results
 		for (int i = 0; i < results.size(); i++) {
@@ -41,6 +50,11 @@ public class Concat {
 		return content.toString().trim();
 	}
 
+	/**
+	 * 拼接Header部分内容
+	 * 
+	 * @return Header内容
+	 */
 	private String concatHeader() {
 		// getHeadInfo
 		String[] headProp = con.getHead().split(";");
@@ -57,7 +71,8 @@ public class Concat {
 	 * concat the center
 	 * 
 	 * @param result
-	 * @return
+	 *            已处理好的XML结果对象
+	 * @return Center内容
 	 */
 	public String concatCenter(Result result) {
 		content = new StringBuffer();
@@ -86,11 +101,13 @@ public class Concat {
 	}
 
 	/**
-	 * judge the necessity of
+	 * judge the necessity of row
 	 * 
 	 * @param option
+	 *            行属性数组
 	 * @param result
-	 * @return
+	 *            已处理好的XML结果对象
+	 * @return 是否必填行
 	 */
 	public boolean isEssentialRow(String[] option, Result result) {
 		// 如果是非必填，则检查该行下的必填列是否有值，如果没有值，则该行不显示
@@ -112,6 +129,7 @@ public class Concat {
 	 * concat row function
 	 * 
 	 * @param options
+	 *            行属性数组
 	 */
 	private void concatRows(String[] options) {
 		StringBuffer rowContent = new StringBuffer();
@@ -137,9 +155,12 @@ public class Concat {
 	 * get content of column
 	 * 
 	 * @param rowContent
+	 *            当前行已拼接好的内容
 	 * @param colInfo
+	 *            列属性数组
 	 * @param options
-	 * @return
+	 *            行属性数组
+	 * @return 行内容
 	 */
 	public String getContent(String rowContent, String[] colInfo, String[] options) {
 		String colContent = "";
@@ -181,7 +202,8 @@ public class Concat {
 	 * get essential value of the "C" row
 	 * 
 	 * @param name
-	 * @return
+	 *            非必填行中关键列的名称
+	 * @return 关键列的值
 	 */
 	public String getEssentialValue(String name) {
 		return resultJson.getString(name);
@@ -191,10 +213,14 @@ public class Concat {
 	 * concat column function
 	 * 
 	 * @param rowContent
+	 *            当前行已拼接好的内容
 	 * @param colContent
+	 *            当前列内容
 	 * @param colInfo
+	 *            列属性数组
 	 * @param options
-	 * @return
+	 *            行属性数组
+	 * @return 已拼接处理好的列值
 	 */
 	public String concatCol(String rowContent, String colContent, String[] colInfo, String[] options) {
 		StringBuffer sb = new StringBuffer();
@@ -212,22 +238,26 @@ public class Concat {
 		int temp = 0;
 		for (int i = 0; i < charResult.length; i++) {
 			sb.append(charResult[i]);
-			if ((i + 1 + temp)
-					% maxChar == 0 /* && i + 1 != charResult.length */) {
+			if ((i + 1 + temp) % maxChar == 0) {//当前列的字符数是否填满
 				curCol++;
-				if (charResult[i] == '?' && charResult[i - 1] != '?') {
-					sb.deleteCharAt(sb.length() - 1);
-					i--;
-					temp++;
+				if (charResult[i] == '?' && charResult[i - 1] != '?') {//当前列的最后一位如果是问号并且倒数第二位不是问号做截断操作
+					sb.deleteCharAt(sb.length() - 1);//删除拼接的最后一位字符
+					i--;//字符数组下标回退一位
+					temp++;//记录回退数
 				}
+				//当前列的已处理数是否大于该列的最大可循环列数
 				if (curCol > maxCol) {
+					//当前已处理的行数是否小于该行的最大可循环行数
 					if (curRow < maxRow) {
+						//如果是的话则拼接引号进入该行的下一次循环
 						sb.append("'");
-						sb.append(rowContent);
+						sb.append(rowContent);//拷贝上一行的公共参数
 						curCol = 1;
 						curRow++;
+						//继续进行余下字符的拼接
 						continue;
 					} else {
+						// 如果当前已处理行数超过了该行的最大可循环行数则退出循环，余下的字符不做处理
 						break;
 					}
 				}

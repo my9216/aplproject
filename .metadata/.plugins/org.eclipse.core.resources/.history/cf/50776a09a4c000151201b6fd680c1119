@@ -1,0 +1,17 @@
+package com.bmm.exception;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
+
+public class UserException extends Exception {
+
+	public UserException(String type, ModelAndView mv) {
+		if ("privs".equals(type)) {
+
+		}
+	}
+}
